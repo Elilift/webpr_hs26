@@ -34,7 +34,7 @@
         const funs = [null, undefined, fun1, fun2];
 
         one( myfun() === 1 );
-        one( funs[0]() === 1 );
+        one( funs[2]() === 1 );
 
         function doit(whatToDo) {
             return function bla(arg) { return whatToDo(arg); }
