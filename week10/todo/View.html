@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todos</title>
+    <link rel="stylesheet" href="./todo.css">
+</head>
+<body>
+
+<main>
+    <h1>Todo List</h1>
+
+    <div class="holder">
+        <div style="display: flex; gap:1em; align-items: baseline; margin-bottom: 1lh;">
+            <button id="plus"    autofocus> + </button>
+            <button id="fortune" autofocus>feeling lucky</button>
+        </div>
+
+
+        <div class="table" id="todoContainer"></div>
+
+        <div>Tasks: <span id="numberOfTasks">0</span></div>
+        <div>Open:  <span id="openTasks"    >0</span></div>
+    </div>
+</main>
+
+
+<script type="module">
+    import {TodoController, TodoItemsView, TodoOpenView, TodoTotalView} from "./todo.js";
+
+    const todoController = TodoController();
+
+    TodoItemsView(todoController, document.getElementById('todoContainer'));
+    TodoTotalView(todoController, document.getElementById('numberOfTasks'));
+    TodoOpenView (todoController, document.getElementById('openTasks'));
+
+    todoController.addTodo();
+    document.querySelector("#plus")   .onclick = _evt => todoController.addTodo();
+    document.querySelector("#fortune").onclick = _evt => todoController.addFortuneTodo();
+
+</script>
+
+</body>
+
+</html>
